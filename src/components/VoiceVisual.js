@@ -11,7 +11,7 @@ const VoiceVisual = () => {
     const [vis, setVis] = useState(SpectrumVisualizerTheme.radialSquaredBars)
   return (
     <>
-    <div className='bg-red-200 flex justify-center h-64'>
+    <div className='bg-red-200 flex justify-center h-80'>
         <SpectrumVisualizer
             audio={florida_low_song}
             theme={vis}
