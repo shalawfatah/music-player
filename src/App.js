@@ -5,7 +5,7 @@ import VoiceVisual from "./components/VoiceVisual";
 
 function App() {
   return (
-    <div className='w-96 mx-auto'>
+    <div className='w-96 mx-auto shadow p-6 rounded-xl'>
       <Header />
       <VoiceVisual />
       <SongInfo />
