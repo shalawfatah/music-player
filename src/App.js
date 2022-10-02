@@ -2,11 +2,22 @@ import AudioPlayer from "./components/AudioPlayer";
 import Header from "./components/Header";
 import SongInfo from "./components/SongInfo";
 import VoiceVisual from "./components/VoiceVisual";
+import {useAtom} from 'jotai';
+import {songAtom} from './data/store.js';
+import { useEffect } from "react";
+import {all_songs} from './data/songs.js';
 
 function App() {
+  
+  const [songs, setSongs] = useAtom(songAtom);
+
+  useEffect(() => {
+    setSongs(all_songs);
+  }, [])
+
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-    <div className='w-96 shadow p-6 rounded-xl'>
+    <div className='w-84 shadow p-6 rounded-xl'>
       <Header />
       <VoiceVisual />
       <SongInfo />
