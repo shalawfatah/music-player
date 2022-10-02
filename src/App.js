@@ -10,10 +10,13 @@ import {all_songs} from './data/songs.js';
 function App() {
   
   const [songs, setSongs] = useAtom(songAtom);
+  const [currentSong, setCurrentSong] = useAtom(currentSongAtom)
+  const [songId, setSongId] = useAtom(songIdAtom)
 
   useEffect(() => {
     setSongs(all_songs);
-  }, [])
+    setCurrentSong(songs[songId])
+  }, [songId, songs])
 
   return (
     <div className="w-screen h-screen flex justify-center items-center">

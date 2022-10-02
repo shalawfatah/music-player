@@ -11,7 +11,7 @@ const AudioPlayer = () => {
   const [currentSong, setCurrentSong] = useAtom(currentSongAtom);
   const [songId, setSongId] = useAtom(songIdAtom);
   const [songs, setSongs] = useAtom(songAtom);
-    const audioElement = new Audio(currentSong?.song_file);
+  const [audioElement, setAudioElement] = useState(new Audio(currentSong?.song_file));
   //   console.log('songs ', songs)
     const handlePlay = () => {
         audioElement.play()
@@ -20,22 +20,23 @@ const AudioPlayer = () => {
   // Handle Previous
   const handlePrev = () => {
     if(songId > 0) {
+      audioElement?.pause()
       setSongId(prev => prev - 1)
     }
   }
   const handleNext = () => {
     if(songId < 4) {
+      audioElement?.pause()
       setSongId(prev => prev + 1)
     }
   }
     useEffect(() => {
       setCurrentSong(songs[songId])
+      setAudioElement(new Audio(currentSong?.song_file))
     }, [songId])
   return (
     <div className='flex justify-center items-center relative'>
        <MdSkipPrevious className='text-4xl text-blue-400' onClick={handlePrev} />
-       <AiFillPlayCircle className='text-6xl text-blue-400' onClick={handlePlay} />
-       <AiFillPauseCircle className='text-6xl text-blue-400' onClick={() => audioElement.pause()} />
        <MdSkipNext className='text-4xl text-blue-400' onClick={handleNext} />
     </div>
   )

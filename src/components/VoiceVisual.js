@@ -22,7 +22,7 @@ const VoiceVisual = () => {
     <>
     <div className='bg-red-200 flex justify-center h-80'>
         <SpectrumVisualizer
-            audio={currentSong?.song_file}
+            audio={songs[songId]?.song_file}
             theme={vis}
             colors={['indigo', 'aqua']}
             backgroundColor="white"
