@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import SongInfo from "./components/SongInfo";
 import VoiceVisual from "./components/VoiceVisual";
 import {useAtom} from 'jotai';
-import {songAtom} from './data/store.js';
+import {currentSongAtom, songAtom, songIdAtom} from './data/store.js';
 import { useEffect } from "react";
 import {all_songs} from './data/songs.js';
 

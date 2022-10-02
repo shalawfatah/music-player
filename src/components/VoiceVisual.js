@@ -1,19 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SpectrumVisualizer, SpectrumVisualizerTheme } from 'react-audio-visualizers';
-import florida_low_song from '../assets/flow-rida-low.mp3';
 import { MdOutlineShowChart} from 'react-icons/md';
 import {ImStatsBars} from 'react-icons/im';
 import {TbAntennaBars5} from 'react-icons/tb';
 import { GiCircle} from 'react-icons/gi';
 import {TbCircleDotted} from 'react-icons/tb';
+import { currentSongAtom, songAtom, songIdAtom } from '../data/store';
+import {useAtom} from 'jotai';
 
 const VoiceVisual = () => {
-    const [vis, setVis] = useState(SpectrumVisualizerTheme.radialSquaredBars)
+  const [songs, setSongs] = useAtom(songAtom);
+  const [currentSong, setCurrentSong] = useAtom(currentSongAtom);
+  const [songId, setSongId] = useAtom(songIdAtom);
+  const [vis, setVis] = useState(SpectrumVisualizerTheme.radialSquaredBars);
+
+  useEffect(() => {
+    setCurrentSong(songs[songId])
+  }, [songId])
+
   return (
     <>
     <div className='bg-red-200 flex justify-center h-80'>
         <SpectrumVisualizer
-            audio={florida_low_song}
+            audio={currentSong?.song_file}
             theme={vis}
             colors={['indigo', 'aqua']}
             backgroundColor="white"
