@@ -15,12 +15,11 @@ const VoiceVisual = () => {
         <SpectrumVisualizer
             audio={florida_low_song}
             theme={vis}
-            colors={['#6F45FF', '#79F6FC']}
-            iconsColor="#26a69a"
+            colors={['indigo', 'aqua']}
             backgroundColor="white"
             showMainActionIcon={false}
             showLoaderIcon
-            highFrequency={20000}
+            highFrequency={8000}
     />
     </div>
     <div className='flex items-center justify-around mx-12 text-2xl'>

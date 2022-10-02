@@ -5,11 +5,13 @@ import VoiceVisual from "./components/VoiceVisual";
 
 function App() {
   return (
-    <div className='w-96 mx-auto shadow p-6 rounded-xl'>
+    <div className="w-screen h-screen flex justify-center items-center">
+    <div className='w-96 shadow p-6 rounded-xl'>
       <Header />
       <VoiceVisual />
       <SongInfo />
       <AudioPlayer />
+    </div>
     </div>
   );
 }
